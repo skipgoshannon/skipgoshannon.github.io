@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume - Shannon Palmer Photography</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body, html {
+            height: 100%;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 14px;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fff;
+        }
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 50px;
+            background-color: rgba(255, 255, 255, 0.9);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        nav ul {
+            list-style-type: none;
+            display: flex;
+        }
+        nav ul li {
+            margin: 0 15px;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+            font-size: 12px;
+            letter-spacing: 1px;
+            font-family: 'Open Sans', sans-serif;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+        .resume-container {
+            max-width: 1200px;
+            margin: 80px auto 40px;
+            padding: 40px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .content {
+            width: 55%;
+            padding-right: 40px;
+        }
+        .image-column {
+            width: 40%;
+            display: flex;
+            justify-content: flex-end;
+            align-items: flex-start;
+        }
+        .image-wrapper {
+            max-width: 100%;
+            height: auto;
+        }
+        h1 {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+        h2 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+        h3 {
+            font-size: 16px;
+            font-weight: 400;
+            margin-bottom: 10px;
+        }
+        p, ul {
+            font-weight: 300;
+            margin-bottom: 15px;
+        }
+        ul {
+            padding-left: 20px;
+        }
+        img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 14px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+        .footer-text {
+            text-align: left;
+        }
+        .social-icons {
+            display: flex;
+            gap: 10px;
+        }
+        .social-icons a {
+            display: block;
+            width: 20px;
+            height: 20px;
+            background-color: #fff;
+        }
+        .footer-links {
+            flex-grow: 1;
+            text-align: center;
+        }
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 12px;
+            margin: 0 10px;
+        }
+        .footer-links a:hover {
+            color: #999;
+        }
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+        .hamburger div {
+            width: 25px;
+            height: 3px;
+            background-color: #333;
+            margin: 5px 0;
+            transition: all 0.3s ease;
+        }
+        .business-name {
+            font-weight: bold;
+        }
+        @media screen and (max-width: 768px) {
+            .resume-container {
+                flex-direction: column-reverse;
+                padding: 20px;
+            }
+            .content, .image-column {
+                width: 100%;
+                padding-right: 0;
+            }
+            .image-column {
+                margin-bottom: 20px;
+                justify-content: center;
+            }
+            .image-wrapper {
+                max-width: 70%;
+            }
+            .hamburger {
+                display: block;
+                position: absolute;
+                right: 15px;
+                top: 15px;
+            }
+            nav ul {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 50px;
+                left: 0;
+                width: 100%;
+                background-color: rgba(255, 255, 255, 0.9);
+            }
+            nav ul.show {
+                display: flex;
+            }
+            nav ul li {
+                margin: 10px 0;
+            }
+            footer {
+                flex-direction: column;
+                align-items: center;
+            }
+            .footer-links, .social-icons {
+                margin-top: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="hamburger">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="headshots.html">Headshots</a></li>
+                <li><a href="events.html">Events</a></li>
+                <li><a href="people.html">People</a></li>
+                <li><a href="commercial.html">Commercial</a></li>
+                <li><a href="artistic.html">Art Photos</a></li>
+                <li><a href="resume.html">Resume</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="resume-container">
+        <div class="content">
+            <h1>Shannon Palmer | Resume</h1>
+            <h2>About me</h2>
+            <p>Entrepreneurial-minded professional with a decade of experience as a successful freelance photographer, and more than 20 years as a graphic designer, illustrator, and printmaker. Proven track record of delivering exceptional visual content for a diverse range of clients, including renowned national publications, local small businesses, and local and regional organizations. Skilled in all aspects of client relations and marketing strategies.</p>
+
+            <h2>Work Experience</h2>
+            <h3>OWNER & PHOTOGRAPHER</h3>
+            <p class="business-name">Shannon Palmer Photography | 2015-2024</p>
+            <ul>
+                <li>Managed all aspects of client projects, from initial consultation to final delivery, ensuring high client satisfaction and repeat business.</li>
+                <li>Developed and executed effective marketing strategies to attract new clients and expand business opportunities.</li>
+                <li>Cultivated strong professional relationships and collaborated with clients to understand their vision and deliver tailored solutions.</li>
+                <li>Provided photography services for various purposes including editorial, photojournalism, events, commercial, headshots, real estate, and marketing materials.</li>
+                <li>Clients have included Essence Magazine, Guitar Player Magazine, ESPN, Comcast, Louisiana Tourism, North Lousiana Economic Partnership, Shreveport Magazine, Gettysburg College, Centenary College of Louisiana, and Bossier City Chamber of Commerce.</li>
+            </ul>
+
+            <h3>GRAPHIC DESIGNER</h3>
+            <p class="business-name">The Real Estate Book | 2013-2016</p>
+            <ul>
+                <li>Created visually compelling designs for print and digital media, including logos, websites, brochures, signage, marketing campaigns, and promotional materials.</li>
+                <li>Produced page layout for publications, and prepared those documents for professional printing.</li>
+                <li>Managed multiple projects simultaneously, meeting tight deadlines and delivering high-quality work under pressure.</li>
+                <li>Utilized Adobe Suite software including Photoshop, Illustrator, and InDesign, to design and edit visual content.</li>
+                <li>Photographed Real Estate on location for print and digital publication.</li>
+            </ul>
+
+            <h3>OWNER & GRAPHIC DESIGNER</h3>
+            <p class="business-name">Shannon Palmer Design | 1999-2014</p>
+            <ul>
+                <li>Managed all aspects of client projects, from initial consultation to final delivery, ensuring high client satisfaction and repeat business.</li>
+                <li>Developed and executed effective marketing strategies to attract new clients and expand business opportunities.</li>
+                <li>Established professional connections, and collaborated with clients to craft customized solutions.</li>
+                <li>Clients have included Daytrotter.com, The Smashing Pumpkins, North Louisiana Gay & Lesbian Film Festival, Shreveport Jazz & Blues Festival,</li>
+            </ul>
+
+            <h3>GRAPHIC DESIGNER</h3>
+            <p class="business-name">The Minden Press-Herald | 2006-2008</p>
+            <ul>
+                <li>Created visually compelling advertisements for local business marketing.</li>
+                <li>Produced page layout for daily publication.</li>
+                <li>Managed multiple projects simultaneously, meeting tight deadlines and delivering high-quality work under pressure.</li>
+                <li>Utilized Adobe Photoshop and Illustrator, along with Quark, to design and edit visual content.</li>
+                <li>Worked closely with sales team to develop successful marketing and design strategies for clients.</li>
+            </ul>
+
+            <h2>Education</h2>
+            <h3 class="business-name">LOUISIANA TECH UNIVERSITY</h3>
+            <p>Coursework in Graphic Design and Studio Art</p>
+            <p>1994-1997</p>
+
+            <h2>Skills</h2>
+            <ul>
+                <li>Proficient in Adobe Photoshop, Lightroom, Illustrator, InDesign, and Premiere Pro</li>
+                <li>Film and digital photography</li>
+                <li>Illustration</li>
+                <li>Video production and editing</li>
+                <li>Printmaking, including screenprinting and engraving</li>
+                <li>Audio Recording and Editing using Ableton Live</li>
+                <li>Familiar with HTML/CSS/Javascript</li>
+                <li>Writing</li>
+            </ul>
+        </div>
+        <div class="image-column">
+            <div class="image-wrapper">
+                <img src="images/img354-web.jpg" alt="Shannon Palmer">
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-text">
+            <p>&copy; 2024 Shannon Palmer. All rights reserved.</p>
+        </div>
+        <div class="footer-links">
+            <a href="headshots.html">Headshots</a>
+            <a href="people.html">People</a>
+            <a href="events-weddings.html">Events/Weddings</a>
+            <a href="artistic.html">Artistic</a>
+            <a href="commercial.html">Commercial</a>
+            <a href="resume.html">Resume</a>
+        </div>
+        <div class="social-icons">
+            <a href="https://www.youtube.com/user/shannonpalmer">
+                <img src="images/social/youtube.png" alt="Instagram">
+            <a href="https://www.facebook.com/shannonpalmerart/">
+                <img src="images/social/facebook.png" alt="facebook">
+            <a href="https://www.instagram.com/shannon_palmer_photography/">
+                    <img src="images/social/instagram.png" alt="Instagram">
+        </div>
+    </footer>
+
+    <script>
+        const hamburger = document.querySelector('.hamburger');
+        const nav = document.querySelector('nav ul');
+
+        hamburger.addEventListener('click', () => {
+            nav.classList.toggle('show');
+        });
+    </script>
+</body>
+</html>

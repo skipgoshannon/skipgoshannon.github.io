@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Shannon Palmer Photography</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body, html {
+            height: 100%;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 14px;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fff;
+        }
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 50px;
+            background-color: rgba(255, 255, 255, 0.9);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        nav ul {
+            list-style-type: none;
+            display: flex;
+        }
+        nav ul li {
+            margin: 0 15px;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+            font-size: 12px;
+            letter-spacing: 1px;
+            font-family: 'Open Sans', sans-serif;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+        .content-container {
+            max-width: 1000px;
+            margin: 80px auto 40px;
+            padding: 40px;
+        }
+        h1 {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+        p {
+            font-weight: 300;
+            margin-bottom: 20px;
+        }
+        form {
+            display: grid;
+            gap: 20px;
+        }
+        label {
+            font-weight: 600;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 14px;
+        }
+        textarea {
+            height: 150px;
+        }
+        button {
+            background-color: #333;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+        }
+        button:hover {
+            background-color: #555;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 14px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+        .footer-text {
+            text-align: left;
+        }
+        .social-icons {
+            display: flex;
+            gap: 10px;
+        }
+        .social-icons a {
+            display: block;
+            width: 20px;
+            height: 20px;
+            background-color: #fff;
+        }
+        .footer-links {
+            flex-grow: 1;
+            text-align: center;
+        }
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 12px;
+            margin: 0 10px;
+        }
+        .footer-links a:hover {
+            color: #999;
+        }
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+        .hamburger div {
+            width: 25px;
+            height: 3px;
+            background-color: #333;
+            margin: 5px 0;
+            transition: all 0.3s ease;
+        }
+        @media screen and (max-width: 768px) {
+            .content-container {
+                padding: 20px;
+            }
+            .hamburger {
+                display: block;
+                position: absolute;
+                right: 15px;
+                top: 15px;
+            }
+            nav ul {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 50px;
+                left: 0;
+                width: 100%;
+                background-color: rgba(255, 255, 255, 0.9);
+            }
+            nav ul.show {
+                display: flex;
+            }
+            nav ul li {
+                margin: 10px 0;
+            }
+            footer {
+                flex-direction: column;
+                align-items: center;
+            }
+            .footer-links, .social-icons {
+                margin-top: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="hamburger">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="headshots.html">Headshots</a></li>
+                <li><a href="events.html">Events</a></li>
+                <li><a href="people.html">People</a></li>
+                <li><a href="commercial.html">Commercial</a></li>
+                <li><a href="artistic.html">Art Photos</a></li>
+                <li><a href="resume.html">Resume</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="content-container">
+        <h1>Contact Shannon Palmer</h1>
+        <p>If you have any questions or would like to discuss a potential project, please fill out the form below. I'll get back to you as soon as possible.</p>
+        
+        <form action="https://formspree.io/f/mwpelpqb" method="POST">
+            <div>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+
+            <div>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <div>
+                <label for="subject">Subject:</label>
+                <input type="text" id="subject" name="subject" required>
+            </div>
+
+            <div>
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" required></textarea>
+            </div>
+
+            <button type="submit">Send Message</button>
+        </form>
+    </div>
+
+    <footer>
+        <div class="footer-text">
+            <p>&copy; 2024 Shannon Palmer. All rights reserved.</p>
+        </div>
+        <div class="footer-links">
+            <a href="headshots.html">Headshots</a>
+            <a href="people.html">People</a>
+            <a href="events-weddings.html">Events/Weddings</a>
+            <a href="artistic.html">Artistic</a>
+            <a href="commercial.html">Commercial</a>
+        </div>
+        <div class="social-icons">
+            <a href="https://www.youtube.com/user/shannonpalmer">
+                <img src="images/social/youtube.png" alt="Instagram">
+            <a href="https://www.facebook.com/shannonpalmerart/">
+                <img src="images/social/facebook.png" alt="facebook">
+            <a href="https://www.instagram.com/shannon_palmer_photography/">
+                    <img src="images/social/instagram.png" alt="Instagram">
+        </div>
+    </footer>
+
+    <script>
+        const hamburger = document.querySelector('.hamburger');
+        const nav = document.querySelector('nav ul');
+
+        hamburger.addEventListener('click', () => {
+            nav.classList.toggle('show');
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parallax Gallery Website</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body, html {
+            height: 100%;
+            font-family: 'Lato', 'Helvetica Neue', Arial, sans-serif;
+            overflow-x: hidden;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 50px;
+            background-color: rgba(255, 255, 255, 0.8);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        nav ul {
+            list-style-type: none;
+            display: flex;
+        }
+        nav ul li {
+            margin: 0 15px;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+            font-size: 12px;
+            letter-spacing: 1px;
+            font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
+            text-transform: uppercase;
+        }
+        .parallax-section {
+            height: 100vh;
+            display: flex;
+            align-items: flex-start;
+            padding-top: 10vh;
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: relative;
+        }
+        .parallax-content {
+            color: white;
+            padding-left: 10%;
+            max-width: 60%;
+        }
+        .parallax-content h1 {
+            font-size: 4em;
+            margin-bottom: 10px;
+            font-family: 'Raleway', 'Helvetica Neue', Arial, sans-serif;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+        .white-section {
+            background-color: white;
+            padding: 50px 10%;
+        }
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0;
+        }
+        .image-grid img {
+            width: 100%;
+            height: 33.33vw;
+            object-fit: cover;
+        }
+        .text-image-section {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        .text-content {
+            flex: 1;
+        }
+        .text-content h2 {
+            font-size: 2.5em;
+            margin-bottom: 5px;
+            font-family: 'Raleway', 'Helvetica Neue', Arial, sans-serif;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+        .text-content h3 {
+            font-size: 1.3em;
+            margin-bottom: 10px;
+            color: #666;
+            font-family: 'Raleway', 'Helvetica Neue', Arial, sans-serif;
+            font-weight: 600;
+            line-height: 1.2;
+        }
+        .large-image {
+            flex: 2;
+        }
+        .large-image img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+        .gallery-section {
+            text-align: center;
+            padding: 50px 10%;
+        }
+        .gallery-section h2 {
+            font-size: 2em;
+            font-weight: 800;
+            
+            margin-bottom: 30px;
+        }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 20px;
+            margin-top: 30px;
+        }
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: all 0.3s ease;
+        }
+        .gallery-item:hover img {
+            transform: translateY(5px);
+            opacity: 0.7;
+        }
+        .gallery-item p {
+            margin-top: 10px;
+        }
+        .gallery-item a {
+            text-decoration: none;
+            color: #333;
+            font-size: 12px;
+            font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            font-family: 'Lato', 'Helvetica Neue', Arial, sans-serif;
+            font-size: 14px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .footer-text {
+            text-align: left;
+        }
+        .social-icons {
+            display: flex;
+            gap: 10px;
+        }
+        .social-icons a {
+            display: block;
+            width: 20px;
+            height: 20px;
+            background-color: #fff;
+        }
+
+        /* Hamburger menu styles */
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+        .hamburger div {
+            width: 25px;
+            height: 3px;
+            background-color: #333;
+            margin: 5px 0;
+            transition: all 0.3s ease;
+        }
+
+        /* Media queries for responsiveness */
+        @media screen and (max-width: 768px) {
+            .image-grid {
+                grid-template-columns: 1fr;
+            }
+            .image-grid img {
+                height: auto;
+            }
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .text-image-section {
+                flex-direction: column;
+            }
+            .parallax-content {
+                max-width: 80%;
+            }
+        }
+
+        .header-logo {
+    max-width: 60%;  /* Adjust this value to control the logo size */
+    height: auto;
+    display: block;
+    margin-bottom: 20px;  /* Adds some space below the logo if needed */
+}
+
+/* Adjust the parallax-content to align the logo properly */
+.parallax-content {
+    color: white;
+    padding-left: 10%;
+    max-width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+        @media screen and (max-width: 480px) {
+            .hamburger {
+                display: block;
+                position: absolute;
+                right: 15px;
+                top: 15px;
+            }
+            nav ul {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 50px;
+                left: 0;
+                width: 100%;
+                background-color: rgba(255, 255, 255, 0.9);
+            }
+            nav ul.show {
+                display: flex;
+            }
+            nav ul li {
+                margin: 10px 0;
+            }
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .gallery-item a {
+    text-decoration: none;
+    color: #333;
+    display: block;
+}
+
+.gallery-item p {
+    margin-top: 10px;
+    font-size: 12px;
+    font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="hamburger">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#featured">Featured</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="resume.html">Resume</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="parallax-section" style="background-image: url('images/DSCF2990.jpg');">
+        <div class="parallax-content">
+            <img src="images/logo-transparent.png" alt="Shannon Palmer Photography" class="header-logo">
+        </div>
+    </section>
+
+    <section class="white-section">
+        <div class="image-grid">
+            <img src="images/grid/01.jpg" alt="Grid Image 1">
+            <img src="images/grid/06.jpg" alt="Grid Image 2">
+            <img src="images/grid/02.jpg" alt="Grid Image 3">
+            <img src="images/grid/05.jpg" alt="Grid Image 4">
+            <img src="images/grid/03.jpg" alt="Grid Image 5">
+            <img src="images/grid/04.jpg" alt="Grid Image 6">
+        </div>
+    </section>
+
+    <section id="about" class="parallax-section" style="background-image: url('images/DSC01838-02.jpg');">
+        <div class="parallax-content" style="max-width: 50%;">
+            <h1>About</h1>
+            <h2>Editorial Photography From a Gen X Nerd.</h2>
+            <p><br>I'm a photographer based in central PA, specializing in editorial photography.
+                <br><br>
+                My work examines the nuances of belonging and identity, especially in contexts where individuals feel at odds with their surroundings. My experiences as an LGBT person from a conservative rural town has deeply influenced my photographic style.</p>
+        </div>
+    </section>
+
+    <section id="featured" class="white-section">
+        <div class="text-image-section">
+            <div class="large-image">
+                <img src="images/DSC_7384-Edit-Edit-2.jpg" alt="Featured Image">
+            </div>
+            <div class="text-content">
+                <h2>Film and Darkroom Enthusiast</h2>
+                <h3>But Also Digital Tech Geek</h3>
+                <p>I started making photographs when I was a kid in the 1980s, and it was 1994 when I first became acquainted with that familiar smell of darkroom chemicals. Although I traded in my film camera for a digital one in 2005, I picked it back up around 2016 (yes, my return to film was certainly inspired by seeing the kid on Stranger Things illuminated by the red glow of the darkroom safelight). Today, I offer workshops in my town's local art space on how to shoot with film, develop the negatives, and make silver gelatin prints.<br><br>
+                    Beyond my personal projects, I provide editorial and commercial photography services to various publications, organizations, and businesses. For inquiries, please contact me via <a href="contact.html">the contact form here on the site,</a> or connect with my professional social media channels listed in the footer.</p></p>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery" class="gallery-section">
+        <h2>Gallery</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <a href="people.html">
+                    <img src="images/links/chase.png" alt="People">
+                    <p>People</p>
+                </a>
+            </div>
+            <div class="gallery-item">
+                <a href="headshots.html">
+                    <img src="images/links/headshots.png" alt="Headshots">
+                    <p>Headshots</p>
+                </a>
+            </div>
+            <div class="gallery-item">
+                <a href="events.html">
+                    <img src="images/links/events.png" alt="Weddings/Events">
+                    <p>Weddings/Events</p>
+                </a>
+            </div>
+            <div class="gallery-item">
+                <a href="commercial.html">
+                    <img src="images/links/commercial.png" alt="Commercial">
+                    <p>Commercial</p>
+                </a>
+            </div>
+            <div class="gallery-item">
+                <a href="artistic.html">
+                    <img src="images/links/artistic.png" alt="Artistic">
+                    <p>Artistic</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-text">
+            <p>&copy; 2024 Shannon Palmer. All rights reserved.</p>
+        </div>
+        <div class="social-icons">
+            <a href="https://www.youtube.com/user/shannonpalmer">
+                <img src="images/social/youtube.png" alt="Instagram">
+            <a href="https://www.facebook.com/shannonpalmerart/">
+                <img src="images/social/facebook.png" alt="facebook">
+            <a href="https://www.instagram.com/shannon_palmer_photography/">
+                    <img src="images/social/instagram.png" alt="Instagram">
+    
+        </div>
+    </footer>
+
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Hamburger menu functionality
+        const hamburger = document.querySelector('.hamburger');
+        const nav = document.querySelector('nav ul');
+
+        hamburger.addEventListener('click', () => {
+            nav.classList.toggle('show');
+        });
+    </script>
+</body>
+</html>

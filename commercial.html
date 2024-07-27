@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Headshots - Shannon Palmer Photography</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body, html {
+            height: 100%;
+            font-family: 'Lato', 'Helvetica Neue', Arial, sans-serif;
+            overflow-x: hidden;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 50px;
+            background-color: rgba(255, 255, 255, 0.8);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        nav ul {
+            list-style-type: none;
+            display: flex;
+        }
+        nav ul li {
+            margin: 0 15px;
+            position: relative;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+            font-size: 12px;
+            letter-spacing: 1px;
+            font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
+            text-transform: uppercase;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: rgba(255, 255, 255, 0.9);
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+        .dropdown-content a {
+            color: #333;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            font-size: 11px;
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        .parallax-section {
+            height: 50vh;
+            display: flex;
+            align-items: flex-start;
+            padding-top: 10vh;
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: relative;
+        }
+        .parallax-content {
+            color: white;
+            padding-left: 10%;
+            max-width: 60%;
+        }
+        .parallax-content h1 {
+            font-size: 4em;
+            margin-bottom: 10px;
+            font-family: 'Raleway', 'Helvetica Neue', Arial, sans-serif;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+        .parallax-content p {
+            font-size: 1em;
+            max-width: 50%;
+        }
+        .white-section {
+            background-color: white;
+            padding: 50px 10%;
+        }
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0;
+        }
+        .image-grid img {
+            width: 100%;
+            height: 33.33vw;
+            object-fit: cover;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            font-family: 'Lato', 'Helvetica Neue', Arial, sans-serif;
+            font-size: 14px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+        .footer-text {
+            text-align: left;
+        }
+        .social-icons {
+            display: flex;
+            gap: 10px;
+        }
+        .social-icons a {
+            display: block;
+            width: 20px;
+            height: 20px;
+            background-color: #fff;
+        }
+        .footer-links {
+            flex-grow: 1;
+            text-align: center;
+        }
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 10px;
+            margin: 0 10px;
+        }
+        .footer-links a:hover {
+            color: #999;
+        }
+
+        /* Hamburger menu styles */
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+        .hamburger div {
+            width: 25px;
+            height: 3px;
+            background-color: #333;
+            margin: 5px 0;
+            transition: all 0.3s ease;
+        }
+
+        /* Media queries for responsiveness */
+        @media screen and (max-width: 768px) {
+            .image-grid {
+                grid-template-columns: 1fr;
+            }
+            .image-grid img {
+                height: auto;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .hamburger {
+                display: block;
+                position: absolute;
+                right: 15px;
+                top: 15px;
+            }
+            nav ul {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 50px;
+                left: 0;
+                width: 100%;
+                background-color: rgba(255, 255, 255, 0.9);
+            }
+            nav ul.show {
+                display: flex;
+            }
+            nav ul li {
+                margin: 10px 0;
+            }
+            .dropdown-content {
+                position: static;
+                box-shadow: none;
+                background-color: transparent;
+            }
+            .dropdown-content a {
+                padding: 5px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="hamburger">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="headshots.html">Headshots</a></li>
+                <li><a href="events.html">Events</a></li>
+                <li><a href="people.html">People</a></li>
+                <li><a href="commercial.html">Commercial</a></li>
+                <li><a href="artistic.html">Art Photos</a></li>
+                <li><a href="resume.html">Resume</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="parallax-section" style="background-image: url('images/commercial-web.jpg');">
+        <div class="parallax-content">
+            <h1>Commercial</h1>
+            <p>A small selection of images I've made for commercial clients over the years.</p>
+        </div>
+    </section>
+
+    <section class="white-section">
+        <div class="image-grid">
+            <img src="images/commercial/0001.jpg">
+<img src="images/commercial/0002.jpg">
+<img src="images/commercial/0003.jpg">
+<img src="images/commercial/0004.jpg">
+<img src="images/commercial/0005.jpg">
+<img src="images/commercial/0006.jpg">
+<img src="images/commercial/0007.jpg">
+<img src="images/commercial/0008.jpg">
+<img src="images/commercial/0009.jpg">
+
+<img src="images/commercial/0011.jpg">
+<img src="images/commercial/0012.jpg">
+<img src="images/commercial/0013.jpg">
+<img src="images/commercial/0014.jpg">
+<img src="images/commercial/0015.jpg">
+<img src="images/commercial/0016.jpg">
+<img src="images/commercial/0017.jpg">
+<img src="images/commercial/0018.jpg">
+
+<img src="images/commercial/0021.jpg">
+<img src="images/commercial/0022.jpg">
+<img src="images/commercial/0023.jpg">
+<img src="images/commercial/0024.jpg">
+            <!-- Add more images as needed -->
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-text">
+            <p>&copy; 2024 Shannon Palmer. All rights reserved.</p>
+        </div>
+        <div class="footer-links">
+            <a href="headshots.html">Headshots</a>
+            <a href="people.html">People</a>
+            <a href="events-weddings.html">Events/Weddings</a>
+            <a href="artistic.html">Artistic</a>
+            <a href="commercial.html">Commercial</a>
+        </div>
+        <div class="social-icons">
+            <a href="https://www.youtube.com/user/shannonpalmer">
+                <img src="images/social/youtube.png" alt="Instagram">
+            <a href="https://www.facebook.com/shannonpalmerart/">
+                <img src="images/social/facebook.png" alt="facebook">
+            <a href="https://www.instagram.com/shannon_palmer_photography/">
+                    <img src="images/social/instagram.png" alt="Instagram">
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Hamburger menu functionality
+        const hamburger = document.querySelector('.hamburger');
+        const nav = document.querySelector('nav ul');
+
+        hamburger.addEventListener('click', () => {
+            nav.classList.toggle('show');
+        });
+    </script>
+</body>
+</html>
